@@ -1,0 +1,3 @@
+* Vandermonte's matrix: $$ a_{ij} = x_i^j $$
+* Combinatorial matrix: $$ a_{ij} = y + \delta_{ij}x $$
+* Cauchy's matrix: $$ a_{ij} = 1 / (x_i + y_j) $$
