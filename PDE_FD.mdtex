@@ -1,0 +1,16 @@
+
+PDE:
+$$ a(t,x,y) U_t + b(t,x,y) U_x + c(t,x,y) U_{yy} = f(t,x,y) $$
+t,x,y - independent variables
+a,b,c,f - known funcs of dep vars
+$$ U $$ - dependent variable, unknown func of dep vars
+
+partial derivs: $$ U_t = \frac{\partial U}{\partial t} 
+  U_x =  \frac{\partial U}{\partial x} U_{yy} = \frac{\partial_2 U}{\partial y_2} $$ 
+  
+Equations:
+* Elliptic: $$ U_{xx} + U_{yy} = f(x,y) $$
+* Parabolic: $$ U_t = kU_{xx} $$
+* Hyperbolic: $$ U_{tt} = c_2 U_{xx} $$
+* advection eq: $$ U_t = -c U_x $$
+* advection-diffusion eq: $$ U_t + c U_x = k U_{xx} $$
