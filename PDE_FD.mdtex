@@ -22,6 +22,7 @@ U - analytic (exact) solution
 u - numerical (approximate) solution
 
 FDM - finite difference method
+FDS - finite difference scheme 
 
 Let $$ U(x) $$ have $$ n $$ continious derivs over $$ (a, b) \implies \forall	x_0, h : a < x_0, x_0 + h < b, 
   U(x_0 + h) = U(x_0) + h U_x(x_0) + h^2 \frac{U_{xx}(x_0)}{2!} + ... + h^{n-1} \frac{U_{n-1}^x_0}{(n-1)!} + O(h^n) $$  
@@ -30,3 +31,13 @@ $$ O(h^n) $$ - order $$ h $$ to the $$ n $$.
 
 First order FD approximation to $$ U_x(x_0) $$ since power of $$ h $$ is one:
 $$ U_x(x_0) \approx \frac{ U(x_0 + h) - U(x_0) }{ h } $$ 
+
+* $$ U_x(t_n, x_i) \approx \frac{ U_{i+1}^n - U_i^n }{ \delta } $$ - first order forward difference approx to $$ U_x(t_n, x_i) $$
+* $$ U_x(t_n, x_i) \approx \frac{ U_i^n - U_{i-1}^n }{ \delta } $$ - first order backward difference approx to $$ U_x(t_n, x_i) $$
+* $$ U_x(t_n, x_i) \approx \frac{ U_{i+1}^n - U_{i-1}^n }{ 2 \delta x } $$ - second order central difference approx to $$ U_x(t_n, x_i) $$
+* $$ U_{xx}(t_n, x_i) \approx \frac{ U_{i+1}^n - 2 U_i^n + U_{i-1}^n }{ \delta x^2 } $$ - second order symmetric difference approx to $$ U_{xx}(t_n, x_i) $$ 
+
+* $$ U_t \approx \frac{ U_i^{n+1} - U_i^n }{ \delta t } $$
+* $$ U_t \approx \frac{ U_i^n - U_i^{n-1} }{ \delta t } $$
+* $$ U_t \approx \frac{ U_i^{n+1} - U_i^{n-1} }{ 2 \delta t } $$
+* $$ U_{tt} \approx \frac{ U_i^{n+1} - 2 U_i^n + U_i^{n-1} }{ \delta t^2 } $$
