@@ -9,7 +9,19 @@ partial derivs: $$ U_t = \frac{\partial U}{\partial t}
   U_x =  \frac{\partial U}{\partial x} U_{yy} = \frac{\partial_2 U}{\partial y_2} $$ 
   
 Equations:
-* Elliptic: $$ U_{xx} + U_{yy} = f(x,y) $$
+* Elliptic: 
+    Laplace's:
+    $$ U_{xx} + U_{yy} = 0 $$
+      Usage:
+      - steady state groundwater flow
+      - temperature distribution over region
+      - simplified description of water flow
+    Poisson's:
+    $$ U_{xx} + U_{yy} = f(x,y) $$
+      Usage:
+      - gravitational field
+      - stress patterns
+      - simplified viscous flow
 * Parabolic: $$ U_t = kU_{xx} $$
 * Hyperbolic: $$ U_{tt} = c_2 U_{xx} $$
 * advection eq: $$ U_t = -c U_x $$
@@ -43,3 +55,4 @@ $$ U_x(x_0) \approx \frac{ U(x_0 + h) - U(x_0) }{ h } $$
 * $$ U_{tt} \approx \frac{ U_i^{n+1} - 2 U_i^n + U_i^{n-1} }{ \delta t^2 } $$
 
 somtimes when boundary conditions are not given use ghost values equal to some combination of interior points
+
