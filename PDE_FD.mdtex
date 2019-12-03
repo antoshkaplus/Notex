@@ -41,3 +41,5 @@ $$ U_x(x_0) \approx \frac{ U(x_0 + h) - U(x_0) }{ h } $$
 * $$ U_t \approx \frac{ U_i^n - U_i^{n-1} }{ \delta t } $$
 * $$ U_t \approx \frac{ U_i^{n+1} - U_i^{n-1} }{ 2 \delta t } $$
 * $$ U_{tt} \approx \frac{ U_i^{n+1} - 2 U_i^n + U_i^{n-1} }{ \delta t^2 } $$
+
+somtimes when boundary conditions are not given use ghost values equal to some combination of interior points
