@@ -3,7 +3,7 @@ PDE:
 $$ a(t,x,y) U_t + b(t,x,y) U_x + c(t,x,y) U_{yy} = f(t,x,y) $$
 t,x,y - independent variables
 a,b,c,f - known funcs of dep vars
-$$ U $$ - dependent variable, unknown func of dep vars
+$$ U $$ - dependent variable, unknown func of indep vars
 
 partial derivs: $$ U_t = \frac{\partial U}{\partial t} 
   U_x =  \frac{\partial U}{\partial x} U_{yy} = \frac{\partial_2 U}{\partial y_2} $$ 
