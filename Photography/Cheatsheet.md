@@ -32,3 +32,11 @@ or underexposed image, play with a combinations of these settings until you get 
 * Aperture f/4
 
 Do not reduce shutter speed as will make stars worse... for some reason
+
+### Inifinity focus
+
+* turn manual mode fucus
+* unlock manual focus on lense
+* rotate last ring all the way right
+
+(the big ring looks like solely for zoming)
