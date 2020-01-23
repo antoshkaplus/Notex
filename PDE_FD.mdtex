@@ -10,14 +10,14 @@ partial derivs: $$ U_t = \frac{\partial U}{\partial t}
   
 Equations:
 * Elliptic: 
-    Laplace's:
-    $$ U_{xx} + U_{yy} = 0 $$
+    Laplace's:  
+    $$ U_{xx} + U_{yy} = 0 $$  
     Usage:
     * steady state groundwater flow
     * temperature distribution over region
     * simplified description of water flow
-    Poisson's:
-    $$ U_{xx} + U_{yy} = f(x,y) $$
+    Poisson's:  
+    $$ U_{xx} + U_{yy} = f(x,y) $$  
     Usage:
     * gravitational field
     * stress patterns
