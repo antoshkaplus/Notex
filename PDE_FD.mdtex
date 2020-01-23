@@ -6,7 +6,7 @@ a,b,c,f - known funcs of dep vars
 $$ U $$ - dependent variable, unknown func of indep vars
 
 partial derivs: $$ U_t = \frac{\partial U}{\partial t} 
-  U_x =  \frac{\partial U}{\partial x} U_{yy} = \frac{\partial_2 U}{\partial y_2} $$ 
+  U_x =  \frac{\partial U}{\partial x} U_{yy} = \frac{\partial^2 U}{\partial y^2} $$ 
   
 Equations:
 * Elliptic: 
