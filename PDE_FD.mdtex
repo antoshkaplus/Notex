@@ -9,13 +9,14 @@ partial derivs: $$ U_t = \frac{\partial U}{\partial t}
   U_x =  \frac{\partial U}{\partial x} U_{yy} = \frac{\partial^2 U}{\partial y^2} $$ 
   
 Equations:
-* Elliptic: 
+* Elliptic:  
     Laplace's:  
     $$ U_{xx} + U_{yy} = 0 $$  
     Usage:
     * steady state groundwater flow
     * temperature distribution over region
     * simplified description of water flow
+    
     Poisson's:  
     $$ U_{xx} + U_{yy} = f(x,y) $$  
     Usage:
