@@ -34,7 +34,7 @@ BC - boundary condition
 U - analytic (exact) solution
 u - numerical (approximate) solution
 
-FDM - finite difference method
+FDM - finite difference method  
 FDS - finite difference scheme 
 
 Let $$ U(x) $$ have $$ n $$ continious derivs over $$ (a, b) \implies \forall	x_0, h : a < x_0, x_0 + h < b, 
