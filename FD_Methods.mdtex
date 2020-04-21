@@ -1,1 +1,41 @@
 
+Laplace's scheme: 
+$$  \frac{u_{i+1 j} - 2u_{i j} + u_{i-1 j}}{\Delta x^2} + 
+\frac{u_{i j+1} - 2u_{i j} + u_{i j-1}}{\Delta y^2} = 0 $$
+if $ b = \frac{\Delta x}{\Delta y} $ then  
+$$ u_{i j} = \frac{ u_{i+1 j} + u_{i-1 j} + b^2 u_{i j+1} + b^2 u_{i j-1} }
+{2(1+b^2)} $$
+also known as 5 point stencil in "compass form":
+$$ u_O = \frac{ u_E + u_W + b^2 u_N + b^2 u_S }
+{2(1+b^2)} $$
+
+That's linear equations system with M-2 x N-2 unknowns. 
+That's usually too many for Gauss (direct method) to solve and iterative methods are used.
+
+Infinity norm:
+$ x,y \in R^N, d(x,y) \text{distance} x \text{between} y, \text{such that} 
+d(x,y) = \max_i(\|x_i - y_i\|) = \| x-y \|_{ \infty} $
+
+If $\Delta x = \Delta y$, 5 point formula:
+$u_{i j} = (u_{i-1 j} + u_{i j-1} + u_{i j+1} + u_{i j-1})/4$
+
+
+Jacobi Iteration:
+$$ u_{i j}^{m+1} = (u_{i-1 j}^m + u_{i j-1}^m + u_{i j+1}^m + u_{i j-1}^m)/4$$
+Exit: $ \| u^{m+1} - u^m \|_{\infty} $  
+Initial values can be zeros or interpolated from the boundaries
+
+Gauss-Seidel Iteration:
+$$ u_{i j}^{m+1} = (u_{i-1 j}^{m+1} + u_{i j-1}^{m+1} + u_{i j+1}^m + u_{i j-1}^m)/4$$
+Using items that are already computed can reduce sufficient iterations count.
+
+Successive Over-Relaxation (SOR):
+if $w = 1$ becomes Gauss-Seidel.
+$$ u_{i j}^{m+1} = (1-w) u_{i j}^m + w (u_{i-1 j}^{m+1} + u_{i j-1}^{m+1} + u_{i j+1}^m + u_{i j-1}^m)/4$$
+
+Line SOR:
+With SOR: $$ u_O^{m+1} = (1-w) u_O^m + \frac{w}{2(1+b^2)} 
+(u_E^{m} + u_W^{m+1} + b^2 ( u_N^m + u_S^{m+1} )) $$ or 
+$$ 2(1+b^2) u_O^{m+1} - w u_E^{m+1} - w u_W^{m+1} = b_0 $$ where 
+$$ b_0 = 2(1+b^2)(1-w) u_O^m + w b^2(u_N^m + u_S^{m+1}) $$ where parameters are known
+Can now use triangular matrix representation:
