@@ -1,4 +1,6 @@
 
+Please note that $j$ - rows indexing bottom to top, $i$ - columns indexing left to right.
+
 Laplace's scheme: 
 $$  \frac{u_{i+1 j} - 2u_{i j} + u_{i-1 j}}{\Delta x^2} + 
 \frac{u_{i j+1} - 2u_{i j} + u_{i j-1}}{\Delta y^2} = 0 $$
@@ -37,5 +39,34 @@ Line SOR:
 With SOR: $$ u_O^{m+1} = (1-w) u_O^m + \frac{w}{2(1+b^2)} 
 (u_E^{m} + u_W^{m+1} + b^2 ( u_N^m + u_S^{m+1} )) $$ or 
 $$ 2(1+b^2) u_O^{m+1} - w u_E^{m+1} - w u_W^{m+1} = b_0 $$ where 
-$$ b_0 = 2(1+b^2)(1-w) u_O^m + w b^2(u_N^m + u_S^{m+1}) $$ where parameters are known
+$$ b_0 = 2(1+b^2)(1-w) u_O^m + w b^2(u_N^m + u_S^{m+1}) $$ where $m$ parameters are known and $u_S^{m+1}$ assuming a bottom to top ordering for the calculation,
 Can now use triangular matrix representation:
+\[
+\begin{bmatrix}
+    2(1+b^2) & -w       & 0  & \dots  &  \dots & 0            \\
+    -w       & 2(1+b^2) & -w & 0  & \dots & 0            \\
+    \vdots & \vdots & \vdots & \ddots & \vdots  & \vdots \\
+    0       &    \dots  &  0      &   -w & 2(1+b^2) & -w \\        
+    0       &    \dots  & \dots      & 0  &  -w  & 2(1+b^2)
+\end{bmatrix}
+\begin{bmatrix}
+    u_{2 j}^{m+1} \\ u_{3 j}^{m+1} \\ \vdots \\ \vdots \\ u_{M-1 j}^{m}
+\end{bmatrix}
+\begin{bmatrix}
+    b_{2 j} \\ b_{3 j} \\ \vdots \\ \vdots \\ b_{M-1 j}
+\end{bmatrix}
+\]
+The corresponding matrix equations for the unknown data $u (i = 2, M-1; \forall j)$.
+Thomas algorithm can be used to solve.
+To retain diagonal dominance at return computational efficiency: $w \leq 1 + b^2$, on square mesh $w \leq 2$.
+Optimum value for $w$ is smaller root of 
+$$ t^2 w^2 - 16 w + 16 $$ where $ t = cos(\Pi / (M-1)) + cos(\Pi / (N-1)) $
+
+Finite difference to be successful requires \bold{consistency, convergence and stability}.
+Consistency is necessary for convergence. Stability provides small error from exact solution.
+Convergence is difficult to prove. But for certain equations proven to converge, sometimes 
+with additional requirements from conditions.
+
+Linear advection equation: $$ U_t + v U_x = 0 $$ - movement of pollutant in a river, simplified river model. 
+IC: $ U(0,x) = f(x) $, where $x$ - position, $v$ - velocity, $t$ - time, $U$ - concentration, kg/m.
+Exact solution $$ U(t,x) = f(x - v t) $$. 
