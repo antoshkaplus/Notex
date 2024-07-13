@@ -4,7 +4,7 @@ Please note that $j$ - rows indexing bottom to top, $i$ - columns indexing left 
 Laplace's scheme: 
 $$  \frac{u_{i+1 j} - 2u_{i j} + u_{i-1 j}}{\Delta x^2} + 
 \frac{u_{i j+1} - 2u_{i j} + u_{i j-1}}{\Delta y^2} = 0 $$
-if $ b = \frac{\Delta x}{\Delta y} $ then  
+if $b = \frac{\Delta x}{\Delta y}$ then  
 $$ u_{i j} = \frac{ u_{i+1 j} + u_{i-1 j} + b^2 u_{i j+1} + b^2 u_{i j-1} }
 {2(1+b^2)} $$
 also known as 5 point stencil in "compass form":
@@ -15,8 +15,8 @@ That's linear equations system with M-2 x N-2 unknowns.
 That's usually too many for Gauss (direct method) to solve and iterative methods are used.
 
 Infinity norm:
-$ x,y \in R^N, d(x,y) \text{distance} x \text{between} y, \text{such that} 
-d(x,y) = \max_i(\|x_i - y_i\|) = \| x-y \|_{ \infty} $
+$x,y \in R^N, d(x,y) \text{ distance } x \text{ between } y, \text{ such that } 
+d(x,y) = \max_i(\|x_i - y_i\|) = \| x-y \|_{ \infty}$
 
 If $\Delta x = \Delta y$, 5 point formula:
 $u_{i j} = (u_{i-1 j} + u_{i j-1} + u_{i j+1} + u_{i j-1})/4$
@@ -24,7 +24,7 @@ $u_{i j} = (u_{i-1 j} + u_{i j-1} + u_{i j+1} + u_{i j-1})/4$
 
 Jacobi Iteration:
 $$ u_{i j}^{m+1} = (u_{i-1 j}^m + u_{i j-1}^m + u_{i j+1}^m + u_{i j-1}^m)/4$$
-Exit: $ \| u^{m+1} - u^m \|_{\infty} $  
+Exit: $\| u^{m+1} - u^m \|_{\infty}$  
 Initial values can be zeros or interpolated from the boundaries
 
 Gauss-Seidel Iteration:
